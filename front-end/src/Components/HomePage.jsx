@@ -43,7 +43,7 @@ const HomePage = ({ messages = [] }) => {
             <Link to="/admission" className="btn btn-primary rounded-pill float-right text-white">More +</Link>
           </div>
           <div className="col-md-6">
-            <img src="/static/website/photo_5.jpg" className="d-block w-100 h-100" alt="..." />
+            <img src="/static/website/photo_03.png" className="d-block w-100 h-100" alt="..." />
           </div>
         </div>
       </div>
@@ -51,7 +51,7 @@ const HomePage = ({ messages = [] }) => {
       <div className="container mt-5">
         <div className="d-flex flex-row justify-content-between">
           <div className="col-md-4">
-            <h2 className="text-primary">About XCollege</h2>
+            <h2 className="text-primary">About the Awesome School</h2>
             <img src="/static/website/about-xcollege.jpg" className="d-block w-100 h-100" alt="About XCollege" />
           </div>
           <div className="col-md-8">
@@ -87,26 +87,107 @@ const HomePage = ({ messages = [] }) => {
       </div>
 
       <div className="container mt-5">
-        <div className="d-flex p-2">
-          <h4 className="text-primary">News & Updates</h4>
-          <hr className="border border-primary border-3 opacity-75 w-100" />
+      <div className="d-flex p-2">
+        <h4 className="text-primary">News & Updates</h4>
+      </div>
+
+      <div className="d-flex justify-content-between align-items-start flex-wrap gap-3">
+        {/* Read All News Button */}
+        <div>
+          <h6><a href="#" className="btn btn-success">Read All News</a></h6>
         </div>
-        <div className="d-flex justify-content-between align-items-start">
-          <div>
-            <h6><a href="#" className="btn btn-success">Read All News</a></h6>
+      </div>
+
+      <div className="d-flex justify-content-between gap-3 flex-wrap mt-4">
+        {/* Main News Card */}
+        <div className="card border-0" style={{ width: '18rem' }}>
+          <img src="/static/website/ethi-telecom.jpg" className="card-img-top" alt="Ethio Telecom" />
+          <br /><br /><br />
+          <span className="mt-3 pl-4"><small>January 23, 2023</small></span>
+          <div className="card-body">
+            <h5 className="card-title">Ethio Telecom Partner with GETFACTet to Boost Students’ Digital skills</h5>
+            <br /><br />
+            <a href="#" className="btn btn-secondary">Read More</a>
           </div>
         </div>
 
-        <div className="d-flex justify-content-between">
+        {/* Secondary News Cards Column */}
+        <div className="d-flex flex-column mb-3 gap-3">
+
           <div className="card border-0" style={{ width: '18rem' }}>
-            <img src="/static/website/ethi-telecom.jpg" className="card-img-top" alt="..." />
-            <span className="mt-3 pl-4"><small>January 23, 2023</small></span>
-            <div className="card-body">
-              News description goes here...
+            <div className="row no-gutters">
+              <div className="col-md-4">
+                <img src="/static/website/ministry-of-innovation.png" className="card-img-right w-100" alt="Ministry of Innovation" />
+              </div>
+              <div className="card-body col-md-8">
+                <h5 className="card-title"><small>June 25, 2016</small></h5>
+                <p className="card-text">
+                  <a href="#" className="btn btn-primary">The Ministry of Innovation and Internet Society sign new pact to advance digital economy in Ethiopia</a>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="card border-0" style={{ width: '18rem' }}>
+            <div className="row no-gutters">
+              <div className="col-md-4">
+                <img src="/static/website/safaricom.jpeg" className="card-img-right w-100" alt="Safaricom" />
+              </div>
+              <div className="card-body col-md-8">
+                <h5 className="card-title"><small>June 25, 2016</small></h5>
+                <p className="card-text">
+                  <a href="#" className="btn btn-primary">Safaricom PLC launches major recruitment drive targeting Ethiopians</a>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="card border-0" style={{ width: '18rem' }}>
+            <div className="row no-gutters">
+              <div className="col-md-4">
+                <img src="/static/website/huawei.png" className="card-img-right w-100" alt="Huawei" />
+              </div>
+              <div className="card-body col-md-8">
+                <h5 className="card-title"><small>June 25, 2016</small></h5>
+                <p><small>/ Admission, Event</small></p>
+                <p className="card-text">
+                  <a href="#" className="btn btn-primary">Jobs Creation Commission and Huawei collaborate to cultivate ICT Talent Ecosystem in Ethiopia</a>
+                </p>
+              </div>
             </div>
           </div>
         </div>
+
+        {/* Subscription + Notice Board */}
+        <div className="card border-0" style={{ width: '18rem' }}>
+          <div className="mb-3">
+            <img src="/static/website/email_green.png" className="w-25" alt="Email" />
+          </div>
+          <form method="POST" className="mb-3">
+            <input
+              type="email"
+              name="email-address"
+              placeholder="Your Email Address"
+              className="form-control mb-2"
+            />
+            <button type="submit" className="btn btn-primary">Subscribe</button>
+          </form>
+          <h6 className="text-uppercase mt-3 fw-bold">Notice Board</h6>
+          <ul className="list-group mt-2">
+            <li className="list-group-item border-0 px-0">
+              <a href="#" className="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">
+                Django Training
+              </a>
+            </li>
+            <li className="list-group-item border-0 px-0">
+              <a href="#" className="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">
+                Info link
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
+    </div>
     </div>
   );
 };
