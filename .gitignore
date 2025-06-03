@@ -1,0 +1,70 @@
+# === Django ===
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+.Python
+venv-school/
+env.bak/
+venv.bak/
+*.sqlite3
+db.sqlite3
+
+# Django migrations
+**/migrations/
+!*/migrations/__init__.py
+
+# Django static/media files
+staticfiles/
+media/
+
+# Django secret files
+*.env
+.env.*
+
+# === React Front-End ===
+frontend/node_modules/
+frontend/build/
+frontend/.env
+frontend/.env.*
+
+# === OS / Editor junk ===
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.idea/
+.vscode/
+*.log
+
+# === Python Bytecode ===
+*.py[cod]
+*$py.class
+
+# === Coverage / Testing ===
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+
+# === MyPy ===
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# === Pipenv ===
+Pipfile.lock
+
+# === PyInstaller ===
+*.manifest
+*.spec
+
+# === Virtualenv (extra entries for compatibility) ===
+.venv/
+*.env/
