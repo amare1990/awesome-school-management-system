@@ -69,9 +69,10 @@ const Navbar = ({ user }) => {
             <li className="nav-item input-group">
               <input type="text" className="form-control col-8" placeholder="Search" />
               <div className="input-group-append">
-                <button className="btn btn-outline-light" type="button">
-                  <i className="fa fa-search"></i>
+                <button className="btn btn-outline-light bg-primary" type="button">
+                  <i className="fa fa-search text-white"></i>
                 </button>
+
               </div>
             </li>
           </ul>
