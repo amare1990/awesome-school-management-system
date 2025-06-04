@@ -1,0 +1,138 @@
+/* General Styling */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+/* Navbar/Menu Styling */
+.navbar {
+  background-color: #002147; /* Deep blue for school brand */
+  padding: 1rem;
+}
+
+.navbar-brand,
+.nav-link {
+  color: white !important;
+  font-weight: 500;
+  margin-right: 1rem;
+}
+
+.nav-link:hover {
+  color: #ffc107 !important;
+}
+
+.navbar .btn {
+  margin-left: 10px;
+}
+
+/* Carousel Styling */
+.carousel {
+  margin-top: 70px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.carousel img {
+  max-height: 400px;
+  object-fit: cover;
+}
+
+/* Admission & About Sections */
+.container .d-flex.flex-row {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.container .d-flex.flex-row h2 {
+  color: #002147;
+  font-weight: bold;
+}
+
+/* Academic Programs */
+.container-fluid.text-center h2 {
+  margin-top: 3rem;
+  font-weight: bold;
+  color: #002147;
+}
+
+.card.bg-primary {
+  background-color: #003366 !important;
+  margin: 1rem;
+  color: white;
+  border-radius: 10px;
+}
+
+.card.bg-primary h4 {
+  font-weight: 600;
+}
+
+.card.bg-primary .btn {
+  background-color: #ffc107;
+  color: #002147;
+  font-weight: 500;
+}
+
+/* News & Updates */
+.container.mt-5 h4 {
+  font-weight: bold;
+  color: #002147;
+}
+
+.card.border-0 {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.card.border-0 img {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  height: 180px;
+  object-fit: cover;
+}
+
+/* Footer Styling */
+footer {
+  margin-top: 4rem;
+  padding: 2rem;
+  background-color: #002147;
+  color: white;
+  text-align: center;
+}
+
+footer a {
+  color: #ffc107;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Search & Account Buttons */
+.navbar .form-inline {
+  margin-left: auto;
+}
+
+.navbar .form-inline input {
+  border-radius: 20px;
+  padding: 0.3rem 1rem;
+}
+
+.navbar .form-inline button {
+  margin-left: 10px;
+  border-radius: 20px;
+}
+
+.account-links {
+  margin-left: 1rem;
+  color: white;
+}
+
+.account-links a {
+  color: #ffc107;
+  margin-left: 0.5rem;
+}
