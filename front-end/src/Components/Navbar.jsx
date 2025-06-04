@@ -1,13 +1,20 @@
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 const Navbar = ({ user }) => {
+  const [isCollapsed, setIsCollapsed] = useState(true);
+
+  const toggleNavbar = () => {
+    setIsCollapsed(!isCollapsed);
+  };
+
   return (
     <>
-      {/* Hidden top info bar */}
+      {/* Top info bar (hidden) */}
       <nav className="navbar navbar-expand-lg navbar-dark bg-primary" style={{ display: 'none' }}>
         <ul className="navbar-nav ml-auto">
           <li className="nav-item active mr-auto">
-            <a className="nav-link" href="#">Tel : +251 111 559769. E: info@hilcoe.net </a>
+            <a className="nav-link" href="#">Tel: +251 111 559769. E: info@hilcoe.net</a>
           </li>
           <li className="nav-item">
             <a className="nav-link bg-danger" href="#">Notice Board +</a>
@@ -21,31 +28,39 @@ const Navbar = ({ user }) => {
           <img src="/static/website/logo-hilcoe.jpg" className="w-75" alt="Hilcoe Logo" />
         </Link>
 
-        <button className="navbar-toggler bg-primary" type="button" data-toggle="collapse" data-target="#collapsed-menu-items">
-          <span className="navbar-toggler-icon text-white">
-            <i className="fas fa-bars"></i>
-          </span>
+        <button
+          className="navbar-toggler bg-primary"
+          type="button"
+          onClick={toggleNavbar}
+        >
+          <span className="navbar-toggler-icon"></span>
         </button>
 
-        <div className="collapse navbar-collapse mr-3" id="collapsed-menu-items">
+        <div className={`collapse navbar-collapse mr-3 ${!isCollapsed ? 'show' : ''}`} id="collapsed-menu-items">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item"><Link className="nav-link" to="/">Home</Link></li>
             <li className="nav-item"><Link className="nav-link" to="/about">About</Link></li>
             <li className="nav-item"><Link className="nav-link" to="/admission">Admission</Link></li>
 
-            {/* Dropdown menu */}
-            <div className="dropdown">
-              <button className="btn dropdown-toggle text-primary" type="button" id="dropdownMenuButton" data-toggle="dropdown">
-                <span style={{ color: 'white', backgroundColor: 'rgb(158, 77, 19)' }}>Academics</span>
+            {/* Academics Dropdown */}
+            <li className="nav-item dropdown">
+              <button
+                className="btn dropdown-toggle text-white"
+                style={{ backgroundColor: 'rgb(158, 77, 19)', border: 'none' }}
+                id="academicsDropdown"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Academics
               </button>
-              <ul className="dropdown-menu bg-primary" aria-labelledby="dropdownMenuButton">
-                <Link className="dropdown-item nav-link" to="/cs-bsc">BSc. in Computer Science</Link>
-                <Link className="dropdown-item nav-link" to="/se-bsc">BSc. in Software Engineering</Link>
-                <Link className="dropdown-item nav-link" to="/cs-msc">MSc. in Computer Science</Link>
-                <Link className="dropdown-item nav-link" to="/se-msc">MSc. in Software Engineering</Link>
-                <Link className="dropdown-item nav-link" to="/courses-list">Courses</Link>
+              <ul className="dropdown-menu bg-primary" aria-labelledby="academicsDropdown">
+                <li><Link className="dropdown-item text-white" to="/cs-bsc">BSc. in Computer Science</Link></li>
+                <li><Link className="dropdown-item text-white" to="/se-bsc">BSc. in Software Engineering</Link></li>
+                <li><Link className="dropdown-item text-white" to="/cs-msc">MSc. in Computer Science</Link></li>
+                <li><Link className="dropdown-item text-white" to="/se-msc">MSc. in Software Engineering</Link></li>
+                <li><Link className="dropdown-item text-white" to="/courses-list">Courses</Link></li>
               </ul>
-            </div>
+            </li>
 
             <li className="nav-item"><Link className="nav-link" to="/resources">Resources</Link></li>
             <li className="nav-item"><Link className="nav-link" to="/contact-us">Contact</Link></li>
@@ -54,41 +69,42 @@ const Navbar = ({ user }) => {
             <li className="nav-item input-group">
               <input type="text" className="form-control col-8" placeholder="Search" />
               <div className="input-group-append">
-                <button className="btn btn-outline-secondary" type="button">
+                <button className="btn btn-outline-light" type="button">
                   <i className="fa fa-search"></i>
                 </button>
               </div>
             </li>
           </ul>
 
-          {/* Auth section */}
-          <div className="setting">
-            {user ? (
-              <div className="dropdown">
-                <button className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-                  <i className="fa fa-user"></i>
-                </button>
-                <div className="dropdown-menu dropdown-menu-right bg-primary">
-                  <Link className="nav-link text-white" to="/logout">Logout</Link>
-                  <Link className="nav-link text-white" to={`/edit-profile/${user.profileId}`}>Edit Profile</Link>
-                  <Link className="nav-link text-white" to="/change-password">Change Password</Link>
-                  <Link className="nav-link text-white" to="/reset-password">Reset Your Password?</Link>
+          {/* Auth Dropdown */}
+          <div className="dropdown ml-auto">
+            <button
+              className="btn btn-primary dropdown-toggle"
+              type="button"
+              id="userMenu"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <i className="fa fa-user"></i>
+            </button>
+            <ul className="dropdown-menu dropdown-menu-end bg-primary" aria-labelledby="userMenu">
+              {user ? (
+                <>
+                  <li><Link className="dropdown-item text-white" to="/logout">Logout</Link></li>
+                  <li><Link className="dropdown-item text-white" to={`/edit-profile/${user.profileId}`}>Edit Profile</Link></li>
+                  <li><Link className="dropdown-item text-white" to="/change-password">Change Password</Link></li>
+                  <li><Link className="dropdown-item text-white" to="/reset-password">Reset Your Password?</Link></li>
                   {(user.role || user.isSuperuser || user.isStaff) && (
-                    <Link className="nav-link text-white" to="/admin-dashboard">My Homepage</Link>
+                    <li><Link className="dropdown-item text-white" to="/admin-dashboard">My Homepage</Link></li>
                   )}
-                </div>
-              </div>
-            ) : (
-              <div className="dropdown">
-                <button className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-                  <i className="fa fa-user"></i>
-                </button>
-                <div className="dropdown-menu dropdown-menu-right bg-primary">
-                  <Link className="dropdown-item text-white nav-link" to="/signup">Signup</Link>
-                  <Link className="dropdown-item text-white nav-link" to="/login">Login</Link>
-                </div>
-              </div>
-            )}
+                </>
+              ) : (
+                <>
+                  <li><Link className="dropdown-item text-white" to="/signup">Signup</Link></li>
+                  <li><Link className="dropdown-item text-white" to="/login">Login</Link></li>
+                </>
+              )}
+            </ul>
           </div>
         </div>
       </nav>
