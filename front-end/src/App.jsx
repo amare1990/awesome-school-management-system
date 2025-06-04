@@ -10,6 +10,7 @@ import SE_BSc from './pages/Academics/SE_BSc';
 import CS_MSc from './pages/Academics/CS_MSc';
 import SE_MSc from './pages/Academics/SE_MSc';
 import Course_List from './pages/Academics/Course_List';
+import Contact from './Components/Contact';
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
         <Route path="/cs-msc" element={<CS_MSc />} />
         <Route path="/se-msc" element={<SE_MSc />} />
         <Route path="courses-list" element={<Course_List />} />
+        <Route path="contact-us" element={<Contact />} />
       </Routes>
       <Footer />
     </Router>
